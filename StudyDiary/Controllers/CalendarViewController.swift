@@ -104,7 +104,8 @@ extension CalendarViewController: UICalendarViewDelegate, UICalendarSelectionSin
 }
 
 
-@available(iOS 17.0, *)
+
+@available(iOS 16.0, *)
 extension CalendarViewController: NewTaskViewControllerDelegate {
     func dismissWithNewTask(task: Task?) {
         guard let task = task else { return }

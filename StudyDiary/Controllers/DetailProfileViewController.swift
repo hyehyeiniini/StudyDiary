@@ -29,7 +29,7 @@ class DetailProfileViewController: UIViewController {
         guard let profileData = profileData else { return }
         
         // 사진을 아직 다운받기 전이라면?
-        if profileData.coverImageView == nil {
+        if profileData.coverImage == nil {
             coverImageView.downloadImage(from: profileData.imageUrlToStr)
         } else {
             coverImageView.image = profileData.coverImage

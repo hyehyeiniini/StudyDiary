@@ -14,8 +14,6 @@ import UIKit
  */
 
 class ProfileTableViewCell: UITableViewCell {
-
-    var profile: Profile?
     
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
@@ -33,6 +31,11 @@ class ProfileTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        profileImageView.image = nil
     }
 
 }

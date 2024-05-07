@@ -31,7 +31,7 @@ extension UIImageView {
                 return
             }
             // sync? async(원래코드)
-            DispatchQueue.main.sync() {
+            DispatchQueue.main.async() {
                 self.image = UIImage(data: data)
             }
         }

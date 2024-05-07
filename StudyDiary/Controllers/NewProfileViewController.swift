@@ -34,7 +34,6 @@ class NewProfileViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        print(#function )
         delegate?.dismissWithProfile(profile: newProfile)
     }
     
@@ -48,7 +47,6 @@ class NewProfileViewController: UIViewController {
         // 이미지뷰에 제스처인식기 연결
         coverImageView.addGestureRecognizer(tapImageViewRecognizer)
         // UI 관련 설정
-        print("coverimageview frame height: \(coverImageView.frame.height)")
         coverImageView.layer.cornerRadius = coverImageView.frame.height / 2
         coverImageView.clipsToBounds = true
         

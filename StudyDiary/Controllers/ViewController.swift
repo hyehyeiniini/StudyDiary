@@ -64,14 +64,23 @@ extension ViewController: UITableViewDataSource {
         // (힙에 올라간)재사용 가능한 셀을 꺼내서 사용하는 메서드 (애플이 미리 잘 만들어 놓음)
         let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileTableViewCell", for: indexPath) as! ProfileTableViewCell
         
+        /* 이 코드.. 뭔가 문제가 있다.
         // 사진을 아직 다운받기 전이라면?
         if profile.coverImage == nil {
             cell.profileImageView.downloadImage(from: profile.imageUrlToStr)
-            // 다운받은 이후에 사진 저장?
+            // 다운받은 이후에 사진 저장? -> 여기서 동기화 문제 발생하는듯..
             profileArray[indexPath.row].coverImage = cell.profileImageView.image
         } else {
             cell.profileImageView.image = profile.coverImage
         }
+         */
+        
+        if profile.coverImage != nil {
+            cell.profileImageView.image = profile.coverImage
+        } else {
+            cell.profileImageView.downloadImage(from: profile.imageUrlToStr)
+        }
+        
         
         cell.profileImageView.layer.cornerRadius = cell.profileImageView.frame.height / 2
         cell.profileImageView.clipsToBounds = true
